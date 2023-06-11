@@ -1,0 +1,16 @@
+.restaurant-card {
+  width: 200px;
+  height: 370px;
+  padding: 10px;
+  margin: 5px;
+  word-break: break-word;
+}
+
+.restaurant-card:hover {
+  border: 1px solid #f0f0f0;
+  box-shadow: 5px 5px 5px 5px #f0f0f0;
+}
+
+.res-logo {
+  width: 100%;
+}
