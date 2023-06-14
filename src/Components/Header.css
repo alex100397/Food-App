@@ -16,9 +16,10 @@
   font-size: 24px;
 }
 
-.header-navigation > ul > li {
+.header-navigation > ul > a {
   padding: 10px;
   margin: 10px;
+  text-decoration: none;
 }
 
 .login{

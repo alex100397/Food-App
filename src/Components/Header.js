@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import "./Header.css";
+import { Link } from "react-router-dom";
 const Header = () => {
   const [login, setLogin] = useState("Login");
   return (
@@ -11,10 +12,10 @@ const Header = () => {
 
       <div className="header-navigation">
         <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact US</li>
-          <li>Cart</li>
+          <Link to="/">Home</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/contact">Contact US</Link>
+          <Link to="/">Cart</Link>
           <button
             className="login"
             onClick={() => {
@@ -24,10 +25,6 @@ const Header = () => {
             {login}
           </button>
         </ul>
-        {/* <a href="#">Home</a>
-                <a href="#">About</a>
-                <a href="#">Foods</a>
-                <a href="#">Contact Us</a> */}
       </div>
     </div>
   );

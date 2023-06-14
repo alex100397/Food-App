@@ -4,6 +4,7 @@
   padding: 10px;
   margin: 5px;
   word-break: break-word;
+  text-decoration: none;
 }
 
 .restaurant-card:hover {
