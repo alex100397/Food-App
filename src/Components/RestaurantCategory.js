@@ -7,7 +7,7 @@ const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
   const handleClick = () => {
     setShowIndex();
   };
-  console.log(data);
+  // console.log(data);
   return (
     <div className="accordion ">
       <div className="header w-6/12 mx-auto my-4 p-4 shadow-lg bg-gray-200">

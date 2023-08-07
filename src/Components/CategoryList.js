@@ -13,7 +13,12 @@ const CategoryList = ({ list }) => {
             <div className="py-2">
               <span className="font-bold">{item.card.info.name}</span>
               <span className="font-bold">
-                - ₹{Math.ceil(item.card.info.defaultPrice / 100)}
+                - ₹
+                {Math.ceil(
+                  item.card.info.defaultPrice
+                    ? item.card.info.defaultPrice / 100
+                    : item.card.info.price / 100
+                )}
               </span>
             </div>
             <p className="text-xs">{item.card.info.description}</p>
