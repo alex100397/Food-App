@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { isOpen } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 // import './Body.css'
 import { Link } from "react-router-dom";
 import { REST_URL } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
+
+const RestaurantOpen = isOpen(RestaurantCard)
 
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
@@ -21,16 +23,16 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(REST_URL);
     const json = await data.json();
-    // console.log(json);
+    console.log(json);
     setListOfRestaurant(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilterRestaurant(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-    // console.log(
-    //   json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    // );
+    console.log(
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
     // setListOfRestaurant(json?.data?.cards[2]?.data?.data?.cards);
     // setFilterRestaurant(json?.data?.cards[2]?.data?.data?.cards);
   };
@@ -85,7 +87,11 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            <RestaurantCard resData={restaurant} />
+            {restaurant.info.isOpen ? (
+              <RestaurantOpen resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>
