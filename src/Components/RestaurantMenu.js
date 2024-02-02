@@ -1,5 +1,6 @@
+import React from "react";
 import "./RestaurantMenu.css";
-import { RESTAURANT_LOGO } from "../utils/constants";
+// import { RESTAURANT_LOGO } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
@@ -10,11 +11,11 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
   const resInfo = useRestaurantMenu(resId);
 
-  const [showIndex,setShowIndex] = useState(null)
+  const [showIndex, setShowIndex] = useState(null);
 
   if (resInfo === null) return <Shimmer />;
 
-  const { name, cuisines, costForTwoMessage, cloudinaryImageId } =
+  const { name, cuisines, costForTwoMessage } =
     resInfo?.cards[0]?.card?.card?.info;
 
   // const { itemCards } =
@@ -39,12 +40,12 @@ const RestaurantMenu = () => {
         <li>Approximate Cost for Two - {costForTwoMessage}</li>
       </ul>
       <h3 className="font-bold text-2xl">Menu</h3>
-      {categories.map((c,index) => (
+      {categories.map((c, index) => (
         <RestaurantCategory
           data={c?.card?.card}
           key={c?.card?.card?.title}
           showItems={index === showIndex ? true : false}
-          setShowIndex={()=>setShowIndex(index)}
+          setShowIndex={() => setShowIndex(index)}
         />
       ))}
       {/* <ul>
