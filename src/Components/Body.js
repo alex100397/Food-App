@@ -24,14 +24,17 @@ const Body = () => {
     const data = await fetch(REST_URL);
     const json = await data.json();
     console.log(json);
+    console.log(
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
     setListOfRestaurant(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilterRestaurant(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     console.log(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     // setListOfRestaurant(json?.data?.cards[2]?.data?.data?.cards);
     // setFilterRestaurant(json?.data?.cards[2]?.data?.data?.cards);

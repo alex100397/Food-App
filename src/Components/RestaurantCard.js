@@ -2,7 +2,7 @@ import { RES_IMG_URL } from "../utils/constants";
 import "./RestaurantCard.css";
 
 const RestaurantCard = ({ resData }) => {
-  const { cloudinaryImageId, name, cuisines, avgRating, deliveryTime } =
+  const { cloudinaryImageId, name, cuisines, avgRating, sla, costForTwo } =
     resData?.info;
 
   return (
@@ -15,7 +15,8 @@ const RestaurantCard = ({ resData }) => {
       <h3 className="font-bold py-4 text-lg">{name}</h3>
       <h4>{cuisines.join(",")}</h4>
       <h4>{avgRating}</h4>
-      <h4>{deliveryTime} minutes</h4>
+      <h4>{costForTwo}</h4>
+      <h4>{sla?.deliveryTime} minutes</h4>
     </div>
   );
 };
